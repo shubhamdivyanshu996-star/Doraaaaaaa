@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Dora ⚛️💌</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    overflow:hidden;
+    font-family:"Segoe UI",sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #dff6ff,
+        #eee2ff,
+        #ffe5f0
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#51485a;
+}
+
+
+/* =========================
+   FLOATING PARTICLES
+========================= */
+
+.float{
+    position:fixed;
+    bottom:-50px;
+
+    font-size:22px;
+
+    opacity:0;
+    pointer-events:none;
+
+    animation:
+    floatUp 8s linear infinite;
+}
+
+@keyframes floatUp{
+
+    0%{
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+        opacity:0;
+    }
+
+    15%{
+        opacity:.75;
+    }
+
+    100%{
+        transform:
+        translateY(-110vh)
+        rotate(35deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-btn{
+
+    position:fixed;
+
+    top:18px;
+    right:18px;
+
+    z-index:50;
+
+    border:none;
+
+    border-radius:25px;
+
+    padding:10px 15px;
+
+    background:
+    rgba(255,255,255,.9);
+
+    color:#7658a8;
+
+    font-size:14px;
+
+    box-shadow:
+    0 8px 20px
+    rgba(0,0,0,.12);
+
+    cursor:pointer;
+
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container{
+
+    width:92%;
+    max-width:440px;
+
+    text-align:center;
+
+}
+
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope{
+
+    width:285px;
+    height:185px;
+
+    margin:auto;
+
+    position:relative;
+
+    background:#9b83d4;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 18px 40px
+    rgba(0,0,0,.18);
+
+    transition:.4s;
+
+}
+
+
+.envelope:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+.envelope::before{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    border-left:
+    142px solid transparent;
+
+    border-right:
+    142px solid transparent;
+
+    border-bottom:
+    105px solid #8067bf;
+
+    z-index:2;
+
+}
+
+
+.flap{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    border-left:
+    142px solid transparent;
+
+    border-right:
+    142px solid transparent;
+
+    border-top:
+    100px solid #7057ad;
+
+    transform-origin:top;
+
+    transition:.8s;
+
+    z-index:5;
+
+}
+
+
+.envelope.open .flap{
+
+    transform:
+    rotateX(180deg);
+
+}
+
+
+.envelope-text{
+
+    position:absolute;
+
+    width:100%;
+
+    bottom:32px;
+
+    z-index:4;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#35275d;
+
+}
+
+
+.open-text{
+
+    margin-top:20px;
+
+    color:#654e88;
+
+    font-size:15px;
+
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter{
+
+    display:none;
+
+    background:
+    rgba(255,255,255,.97);
+
+    padding:
+    25px 22px;
+
+    border-radius:23px;
+
+    box-shadow:
+    0 18px 45px
+    rgba(0,0,0,.16);
+
+    animation:
+    appear .7s ease;
+
+}
+
+
+@keyframes appear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(30px)
+        scale(.94);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   SLIDES
+========================= */
+
+.slide{
+
+    display:none;
+
+    min-height:355px;
+
+}
+
+
+.slide.active{
+
+    display:block;
+
+    animation:
+    slideIn .45s ease;
+
+}
+
+
+@keyframes slideIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateX(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateX(0);
+
+    }
+
+}
+
+
+.big{
+
+    font-size:48px;
+
+    margin:4px;
+
+}
+
+
+h1{
+
+    color:#7655aa;
+
+    font-size:29px;
+
+}
+
+
+h2{
+
+    color:#7655aa;
+
+}
+
+
+p{
+
+    font-size:16.5px;
+
+    line-height:1.7;
+
+}
+
+
+.highlight{
+
+    color:#7655aa;
+
+    font-weight:bold;
+
+}
+
+
+.final{
+
+    font-size:19px;
+
+    color:#674b83;
+
+    font-weight:600;
+
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo-frame{
+
+    width:190px;
+    height:190px;
+
+    margin:
+    5px auto 16px;
+
+    padding:6px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #9b83d4,
+        #e7a7c6
+    );
+
+    box-shadow:
+    0 12px 30px
+    rgba(0,0,0,.18);
+
+    transform:rotate(-2deg);
+
+}
+
+
+.photo-frame img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    display:block;
+
+}
+
+
+.photo-caption{
+
+    font-size:16px;
+
+    line-height:1.65;
+
+    color:#62566d;
+
+}
+
+
+/* =========================
+   CINEMATIC PHOTO INTRO
+========================= */
+
+.photo-slide.active .fade-photo{
+
+    animation:
+    photoFade
+    1.8s
+    ease
+    forwards;
+
+}
+
+
+.photo-slide.active .photo-text{
+
+    animation:
+    textFade
+    1.4s
+    ease
+    1s
+    both;
+
+}
+
+
+/* Photo starts blurred,
+   small and invisible */
+
+@keyframes photoFade{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        scale(.82)
+        rotate(-5deg);
+
+        filter:
+        blur(8px);
+
+    }
+
+
+    60%{
+
+        opacity:1;
+
+        filter:
+        blur(0);
+
+    }
+
+
+    100%{
+
+        opacity:1;
+
+        transform:
+        scale(1)
+        rotate(-2deg);
+
+        filter:
+        blur(0);
+
+    }
+
+}
+
+
+/* Text appears after photo */
+
+@keyframes textFade{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+        translateY(18px);
+
+    }
+
+
+    100%{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   FINAL SCREEN
+========================= */
+
+.last-screen{
+
+    font-size:21px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:12px;
+
+}
+
+
+.nav-btn{
+
+    border:none;
+
+    padding:
+    11px 18px;
+
+    border-radius:25px;
+
+    background:#8064bb;
+
+    color:white;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.nav-btn:hover{
+
+    transform:scale(1.06);
+
+}
+
+
+.nav-btn:disabled{
+
+    opacity:.35;
+
+    cursor:not-allowed;
+
+}
+
+
+.counter{
+
+    font-size:13px;
+
+    color:#999;
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio
+    id="music"
+    loop
+    preload="auto">
+
+    <source
+        src="song.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    onclick="toggleMusic()">
+
+    🎵 Play
+
+</button>
+
+
+<!-- =========================
+     FLOATING DECORATIONS
+========================= -->
+
+<div
+    class="float"
+    style="left:6%;animation-delay:0s;">
+
+    ⚛️
+
+</div>
+
+
+<div
+    class="float"
+    style="left:20%;animation-delay:2s;">
+
+    💜
+
+</div>
+
+
+<div
+    class="float"
+    style="left:38%;animation-delay:4s;">
+
+    ✨
+
+</div>
+
+
+<div
+    class="float"
+    style="left:57%;animation-delay:1s;">
+
+    🌸
+
+</div>
+
+
+<div
+    class="float"
+    style="left:75%;animation-delay:3s;">
+
+    ⚛️
+
+</div>
+
+
+<div
+    class="float"
+    style="left:90%;animation-delay:5s;">
+
+    🤍
+
+</div>
+
+
+
+<div class="container">
+
+
+<!-- =========================
+     ENVELOPE
+========================= -->
+
+<div
+    class="envelope"
+    id="envelope"
+    onclick="openLetter()">
+
+    <div class="flap"></div>
+
+    <div class="envelope-text">
+
+        For Dora ⚛️💌
+
+    </div>
+
+</div>
+
+
+<div
+    class="open-text"
+    id="openText">
+
+    Tap the envelope ✨
+
+</div>
+
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<div
+    class="letter"
+    id="letter">
+
+
+<!-- =========================
+     PAGE 1
+========================= -->
+
+<div class="slide active">
+
+    <div class="big">
+        💌
+    </div>
+
+    <h1>
+        Hey, Dora...
+    </h1>
+
+    <p>
+
+        There are some people who come
+        into your life and somehow make
+        things feel a little easier.
+
+        <br><br>
+
+        You became that person for me.
+
+        <br><br>
+
+        <span class="highlight">
+
+            And I don't think I've ever
+            properly thanked you.
+
+        </span>
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     PAGE 2
+========================= -->
+
+<div class="slide">
+
+    <div class="big">
+        🫶
+    </div>
+
+    <h2>
+        My unofficial therapist 😭
+    </h2>
+
+    <p>
+
+        You listened to my endless thoughts,
+        my overthinking,
+        my random stories,
+        my bad days,
+        and all the things I couldn't
+        explain properly.
+
+        <br><br>
+
+        Somehow, you became my
+
+        <span class="highlight">
+            unofficial mental therapist.
+        </span>
+
+        😭
+
+        <br><br>
+
+        You didn't always have to say something.
+
+        <br>
+
+        You just listened.
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     PAGE 3 — PHOTO
+========================= -->
+
+<div class="slide photo-slide">
+
+
+    <div class="photo-frame fade-photo">
+
+        <img
+            src="dora.jpg"
+            alt="Dora">
+
+    </div>
+
+
+    <div class="photo-text">
+
+        <h2>
+            There's a reason I keep
+            this picture... 🤍
+        </h2>
+
+
+        <p class="photo-caption">
+
+            Out of all the pictures,
+            this is the one I find myself
+            looking at again and again.
+
+            <br><br>
+
+            Sometimes, when my mind
+            gets too loud,
+
+            <span class="highlight">
+                I just stare at this picture
+                for a while.
+            </span>
+
+            <br><br>
+
+            Not because it fixes everything...
+
+            but somehow,
+
+            <span class="highlight">
+                it makes things feel
+                a little calmer.
+            </span>
+
+            🌷
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     PAGE 4
+========================= -->
+
+<div class="slide">
+
+    <div class="big">
+        🤍
+    </div>
+
+    <h2>
+        You didn't have to fix anything
+    </h2>
+
+    <p>
+
+        You never had to magically
+        solve my problems.
+
+        <br><br>
+
+        Sometimes I just needed someone
+        who would stay long enough
+        to hear me out.
+
+        <br><br>
+
+        And you did.
+
+        <br><br>
+
+        <span class="highlight">
+
+            That means more than you
+            probably realize.
+
+        </span>
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     PAGE 5
+========================= -->
+
+<div class="slide">
+
+    <div class="big">
+        ⚛️
+    </div>
+
+    <h2>
+        And then you made me...
+    </h2>
+
+    <p>
+
+        Somewhere along the way,
+        you somehow turned the confused,
+        overthinking version of me into...
+
+        <br><br>
+
+        <span
+            class="highlight"
+            style="font-size:25px;">
+
+            YOUR PROTON. ⚛️
+
+        </span>
+
+        <br><br>
+
+        I still don't know how
+        you managed that. 😭
+
+        <br><br>
+
+        But honestly...
+
+        <br>
+
+        I'm glad you did.
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     PAGE 6
+========================= -->
+
+<div class="slide">
+
+    <div class="big">
+        💜
+    </div>
+
+    <h2>
+        I'm genuinely grateful
+    </h2>
+
+    <p>
+
+        Maybe it was your patience.
+
+        <br>
+
+        Maybe it was the way you listened.
+
+        <br>
+
+        Maybe it was simply
+        having you around.
+
+        <br><br>
+
+        Whatever it was...
+
+        <br><br>
+
+        <span class="highlight">
+
+            I'm genuinely grateful
+            that I met you.
+
+        </span>
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     PAGE 7
+========================= -->
+
+<div class="slide">
+
+    <div class="big">
+        🌸
+    </div>
+
+    <h2>
+        But don't forget yourself
+    </h2>
+
+    <p>
+
+        You don't always have to be
+        the person who listens.
+
+        <br><br>
+
+        You can have bad days.
+
+        <br>
+
+        You can rant.
+
+        <br>
+
+        You can be tired.
+
+        <br>
+
+        You can say random nonsense too. 😭
+
+        <br><br>
+
+        <span class="highlight">
+
+            Your feelings matter too.
+
+        </span>
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     PAGE 8
+========================= -->
+
+<div class="slide">
+
+    <div class="big">
+        🫂
+    </div>
+
+    <h2>
+        Best friends.
+    </h2>
+
+    <p>
+
+        I don't know what the future
+        will look like or how much
+        life will change.
+
+        <br><br>
+
+        But I'm genuinely glad that,
+        somewhere in this huge world,
+        I got to meet you.
+
+        <br><br>
+
+        And I'm even more glad
+        that I get to call you
+
+        <span class="highlight">
+            my best friend.
+        </span>
+
+        🤍
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     PAGE 9 — FINAL
+========================= -->
+
+<div class="slide">
+
+    <div class="big">
+        🌷
+    </div>
+
+    <p class="last-screen">
+
+        Dora...
+
+        <br><br>
+
+        Thank you for listening.
+
+        <br>
+
+        Thank you for understanding.
+
+        <br>
+
+        Thank you for being there.
+
+        <br>
+
+        Thank you for turning me
+        into your Proton. ⚛️
+
+        <br><br>
+
+        And if you ever forget how
+        special you are to the people
+        around you...
+
+        <br>
+
+        come back to this little letter.
+
+        <br><br>
+
+        <span class="highlight">
+
+            And remember one thing...
+
+        </span>
+
+        <br><br>
+
+        <b
+            style="
+            font-size:28px;
+            color:#7655aa;
+            ">
+
+            Be happy. 🤍
+
+        </b>
+
+        <br><br>
+
+        <span style="font-size:19px;">
+
+            From your Proton ⚛️
+
+        </span>
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div class="navigation">
+
+    <button
+        class="nav-btn"
+        id="prevBtn"
+        onclick="previousSlide()"
+        disabled>
+
+        ← Previous
+
+    </button>
+
+
+    <span
+        class="counter"
+        id="counter">
+
+        1 / 9
+
+    </span>
+
+
+    <button
+        class="nav-btn"
+        id="nextBtn"
+        onclick="nextSlide()">
+
+        Next →
+
+    </button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const music =
+    document.getElementById("music");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+let musicStarted = false;
+
+
+function updateMusicButton(){
+
+    if(music.paused){
+
+        musicBtn.textContent =
+            "🎵 Play";
+
+    }
+    else{
+
+        musicBtn.textContent =
+            "⏸️ Pause";
+
+    }
+
+}
+
+
+function startMusic(){
+
+    music.volume = 0.65;
+
+    music.play().then(()=>{
+
+        updateMusicButton();
+
+    }).catch(()=>{
+
+        musicBtn.textContent =
+            "🎵 Play";
+
+    });
+
+}
+
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play().then(()=>{
+
+            updateMusicButton();
+
+        }).catch(()=>{
+
+            alert(
+                "Make sure song.mp3 is in the same folder as index.html."
+            );
+
+        });
+
+    }
+
+    else{
+
+        music.pause();
+
+        updateMusicButton();
+
+    }
+
+}
+
+
+
+/* =========================
+   OPEN LETTER
+========================= */
+
+function openLetter(){
+
+    const envelope =
+        document.getElementById("envelope");
+
+    const letter =
+        document.getElementById("letter");
+
+    const openText =
+        document.getElementById("openText");
+
+
+    envelope.classList.add("open");
+
+
+    if(!musicStarted){
+
+        startMusic();
+
+        musicStarted = true;
+
+    }
+
+
+    setTimeout(()=>{
+
+        envelope.style.display =
+            "none";
+
+        openText.style.display =
+            "none";
+
+        letter.style.display =
+            "block";
+
+    },800);
+
+}
+
+
+
+/* =========================
+   SLIDES
+========================= */
+
+let currentSlide = 0;
+
+
+const slides =
+    document.querySelectorAll(".slide");
+
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+
+const counter =
+    document.getElementById("counter");
+
+
+
+function showSlide(index){
+
+    slides.forEach(slide=>{
+
+        slide.classList.remove("active");
+
+    });
+
+
+    slides[index].classList.add("active");
+
+
+    counter.textContent =
+        (index + 1)
+        + " / "
+        + slides.length;
+
+
+    prevBtn.disabled =
+        index === 0;
+
+
+    nextBtn.disabled =
+        index === slides.length - 1;
+
+}
+
+
+
+function nextSlide(){
+
+    if(
+        currentSlide
+        <
+        slides.length - 1
+    ){
+
+        currentSlide++;
+
+        showSlide(currentSlide);
+
+    }
+
+}
+
+
+
+function previousSlide(){
+
+    if(currentSlide > 0){
+
+        currentSlide--;
+
+        showSlide(currentSlide);
+
+    }
+
+}
+
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "ArrowRight"){
+
+            nextSlide();
+
+        }
+
+
+        if(event.key === "ArrowLeft"){
+
+            previousSlide();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
